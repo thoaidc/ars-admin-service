@@ -31,7 +31,7 @@ spring:
       uri: http://ars-config-server:8888
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://ars-mysql:3306/ars_user?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh
+    url: jdbc:mysql://ars-mysql:3306/ars_admin?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh
     username: ${ARS_DB_USERNAME}
     password: ${ARS_DB_PASSWORD}
     hikari:
@@ -70,6 +70,24 @@ spring:
         jdbc:
           time_zone: UTC
           ddl-auto: validate
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 1
+      timeout: 100ms
+      connect-timeout: 500ms
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 5
+          max-idle: 2
+          min-idle: 2
+          max-wait: 1s
+          time-between-eviction-runs: 10s
+        shutdown-timeout: 100ms
+      ssl:
+        enabled: false
   jackson:
     time-zone: UTC
   servlet:
@@ -120,6 +138,7 @@ app:
       - /login/**
       - /actuator/**
       - /favicon.ico
+      - /
 
   http-client:
     rest-template: enabled
@@ -180,3 +199,12 @@ app:
         - /uploads/
       locations:
         - opt/uploads/users/
+  gateway:
+    api:
+      get-routes-config: http://localhost:8080/api/v1/gateway/securities/routes
+      refresh-rate-limiter: http://localhost:8080/api/v1/gateway/securities/rate-limiter/refresh
+      get-rate-limit-excluded-api: http://localhost:8080/api/v1/gateway/securities/rate-limiter/excluded
+      refresh-rate-limit-excluded-api: http://localhost:8080/api/v1/gateway/securities/rate-limiter/excluded
+      get-public-request-patterns-api: http://localhost:8080/api/v1/gateway/securities/public-request-patterns
+      refresh-public-request-patterns-api: http://localhost:8080/api/v1/gateway/securities/public-request-patterns
+    redis-db: 1

@@ -14,8 +14,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Optional;
 
-@SpringBootApplication
 @EnableDiscoveryClient
+@SpringBootApplication(scanBasePackages = {"com.dct", "com.ars"})
 public class AdminServiceApplication {
     private static final Logger log = LoggerFactory.getLogger(AdminServiceApplication.class);
 

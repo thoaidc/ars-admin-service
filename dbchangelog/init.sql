@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS `ars_admin`;
+-- DEFAULT CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_unicode_ci
+-- DEFAULT ENCRYPTION='N'
+USE `ars_admin`;
+-- Server version 8.0.37
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `config`;
+SET FOREIGN_KEY_CHECKS = 1;
+
+DROP TABLE IF EXISTS config;
+CREATE TABLE config (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    shop_id INT NOT NULL,
+    code VARCHAR(50) NOT NULL,
+    value NVARCHAR(2000) NOT NULL,
+    description NVARCHAR(255),
+    created_by VARCHAR(50),
+    last_modified_by VARCHAR(50),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

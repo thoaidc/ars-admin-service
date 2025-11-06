@@ -1,0 +1,9 @@
+package com.ars.adminservice.constants;
+
+public interface ExceptionConstants {
+    // Rate limiter exception
+    String RATE_LIMITER_ROUTE_ID_NOT_BLANK = "RATE_LIMITER_ROUTE_ID_NOT_BLANK";
+    String RATE_LIMITER_MIN_BAN_THRESHOLD = "RATE_LIMITER_MIN_BAN_THRESHOLD";
+    String RATE_LIMITER_WINDOW_SECOND = "RATE_LIMITER_WINDOW_SECOND";
+    String RATE_LIMITER_BAN_DURATION_MINUTES = "RATE_LIMITER_BAN_DURATION_MINUTES";
+}

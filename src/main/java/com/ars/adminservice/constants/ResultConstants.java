@@ -13,5 +13,6 @@ import com.dct.model.dto.response.BaseResponseDTO;
  * @author thoaidc
  */
 public interface ResultConstants {
-
+    String CONFIG_SAVE_FAIL = "";
+    String SUCCESS_GET_LIST = "";
 }
