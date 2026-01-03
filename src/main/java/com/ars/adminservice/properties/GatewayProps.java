@@ -1,4 +1,4 @@
-package com.ars.adminservice.config.properties;
+package com.ars.adminservice.properties;
 
 import com.ars.adminservice.constants.PropertiesConstants;
 import org.springframework.boot.context.properties.ConfigurationProperties;

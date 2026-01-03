@@ -1,6 +1,6 @@
 package com.ars.adminservice.service.impl;
 
-import com.ars.adminservice.config.properties.GatewayProps;
+import com.ars.adminservice.properties.GatewayProps;
 import com.ars.adminservice.constants.GatewaySecurityConstants;
 import com.ars.adminservice.constants.ResultConstants;
 import com.ars.adminservice.dto.RateLimiterConfigDTO;
